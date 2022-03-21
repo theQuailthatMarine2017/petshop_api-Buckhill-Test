@@ -14,8 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('order_statuses', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('uuid');
+            $table->string('title');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

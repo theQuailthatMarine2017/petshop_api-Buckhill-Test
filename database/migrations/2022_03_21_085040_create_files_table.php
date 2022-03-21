@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('uuid');
+            $table->string('name');
+            $table->string('path');
+            $table->string('size');
+            $table->string('type');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

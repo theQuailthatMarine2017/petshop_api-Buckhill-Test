@@ -14,8 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jwt_tokens', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('unique_id');
+            $table->string('token_title');
+            $table->boolean('restrictions')->nullable()->change();
+            $table->string('permissions')->nullable()->change();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('expires_at')->nullable()->change();
+            $table->timestamp('last_used_at')->nullable()->change();
+            $table->timestamp('refreshed_at')->nullable()->change();
         });
     }
 
