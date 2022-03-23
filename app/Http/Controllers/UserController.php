@@ -15,7 +15,7 @@ class UserController extends Controller
   public function store(Request $request)
     {
 
-        error_log($request->all());
+        error_log("Merge testing");
         $bearer = $request->header('Authorization');
 
         if ($bearer) {
