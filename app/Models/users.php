@@ -11,7 +11,12 @@ class users extends Model
 
     protected $fillable = ['first_name', 'last_name','email','password','avatar','address','phone_number'];
 
-    // protected $attributes = [
-    //     'is_admin' => 1,
-    // ];
+    protected $attributes = [
+        'is_admin' => 0,
+    ];
+
+    public function setAdmin($value)
+    {
+        $this->attributes['is_admin'] = $value;
+    }
 }
